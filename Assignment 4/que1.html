@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5Sticky - sticky notes for web!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #333;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            align-items: center;
+        }
+
+        div > .logo > span {
+            display: flex;
+            color:red; 
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .controls {
+            display: flex;
+            align-items: center;
+        }
+        
+        .icon-button {
+            width: 24px;
+            height: 24px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        
+        .add {
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+        }
+        
+        .delete {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 22px;
+        }
+        
+        .social {
+            display: flex;
+            align-items: center;
+        }
+        
+        .social img {
+            height: 24px;
+            margin-right: 10px;
+        }
+        
+        .donate-btn {
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .notes-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .sticky-note {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            padding: 30px 10px 10px 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            cursor: move;
+        }
+        
+        .note-red {
+            background-color: #f44336;
+        }
+        
+        .note-blue {
+            background-color: #5c7cfa;
+        }
+        
+        .note-teal {
+            background-color: #0d6efd;
+        }
+        
+        .note-purple {
+            background-color: #6f42c1;
+        }
+        
+        .note-orange {
+            background-color: #fd7e14;
+        }
+        
+        .note-pink {
+            background-color: #e83e8c;
+        }
+        
+        .note-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .note-icons {
+            display: flex;
+        }
+        
+        .note-icon {
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        
+        .pin {
+            color: #0056b3;
+        }
+        
+        .close {
+            color: red;
+        }
+        
+        .note-content {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            color: white;
+            resize: none;
+            font-size: 14px;
+        }
+        
+        .note-content:focus {
+            outline: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            HTML5Sticky <span>sticky notes for web!</span>
+        </div>
+        <div class="controls">
+            <div class="icon-button add">+</div>
+            <div class="icon-button delete">×</div>
+            <div class="social">
+                <a href="#"><img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter"></a>
+                <button class="donate-btn">$ Donate</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notes-container">
+        <div class="sticky-note note-red">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-blue">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-teal">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-red">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-purple">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-orange">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-orange">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+
+        <div class="sticky-note note-pink">
+            <div class="note-header">
+                <div class="date-time">3/18/2020 12:40 PM</div>
+                <div class="note-icons">
+                    <span class="note-icon pin">📌</span>
+                    <span class="note-icon close">✖</span>
+                </div>
+            </div>
+            <textarea class="note-content" placeholder="Text here..."></textarea>
+        </div>
+    </div>
+    
+</body>
+</html>

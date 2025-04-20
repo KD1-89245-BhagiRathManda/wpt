@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Products</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+      .products-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .product-card {
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        padding: 20px;
+        transition: transform 0.3s;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+      .product-image img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
+      .product-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 20px 0 10px;
+      }
+      .product-description {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
+      .product-price {
+        font-size: 24px;
+        color: #ff8c00;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+      .add-to-cart {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 25px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+        transition: background 0.2s;
+      }
+      .add-to-cart:hover {
+        background: #218838;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Our Products</h1>
+    <div class="products-container">
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Dell Laptop"
+          />
+        </div>
+        <div class="product-title">Product 1</div>
+        <div class="product-description">
+          High-quality product that meets your needs.
+        </div>
+        <div class="product-price">$805.08</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.pexels.com/photos/4103247/pexels-photo-4103247.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Laptop Bag"
+          />
+        </div>
+        <div class="product-title">Product 2</div>
+        <div class="product-description">
+          Excellent craftsmanship and durable design.
+        </div>
+        <div class="product-price">$11.50</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Keyboard and Mouse"
+          />
+        </div>
+        <div class="product-title">Product 3</div>
+        <div class="product-description">
+          Reliable and affordable choice for everyone.
+        </div>
+        <div class="product-price">$12.00</div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </body>
+</html>
