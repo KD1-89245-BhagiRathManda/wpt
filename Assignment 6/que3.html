@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 10px;
+      }
+      td {
+        padding: 10px;
+      }
+      input[type="text"] {
+        width: 100px;
+        padding: 5px;
+        text-align: right;
+      }
+      input[readonly] {
+        background-color: #f0f0f0;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #e0e0e0;
+      }
+      h1 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1><u>Calculator</u></h1>
+      <table>
+        <tr>
+          <td><label for="num1">Enter Number 1</label></td>
+          <td>
+            <input type="text" id="num1" onkeypress="return isNumber(event)" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="num2">Enter Number 2</label></td>
+          <td>
+            <input type="text" id="num2" onkeypress="return isNumber(event)" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="result">Result</label></td>
+          <td><input type="text" id="result" readonly /></td>
+        </tr>
+      </table>
+      <div style="text-align: center; margin-top: 10px">
+        <button onclick="calculate('add')">Addition</button>
+        <button onclick="calculate('subtract')">Subtraction</button>
+        <button onclick="calculate('multiply')">Multiplication</button>
+        <button onclick="calculate('divide')">Division</button>
+      </div>
+    </div>
+
+    <script>
+      function isNumber(event) {
+        const charCode = event.charCode;
+        if ((charCode >= 48 && charCode <= 57) || charCode === 46) {
+          return true; // Allow numbers and decimal point
+        }
+        return false; // Block other characters
+      }
+
+      function calculate(operation) {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        const resultField = document.getElementById("result");
+
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Please enter valid numbers in both fields.");
+          return;
+        }
+
+        let result;
+        switch (operation) {
+          case "add":
+            result = num1 + num2;
+            break;
+          case "subtract":
+            result = num1 - num2;
+            break;
+          case "multiply":
+            result = num1 * num2;
+            break;
+          case "divide":
+            if (num2 === 0) {
+              alert("Division by zero is not allowed.");
+              return;
+            }
+            result = num1 / num2;
+            break;
+          default:
+            result = 0;
+        }
+
+        resultField.value = result.toFixed(2); 
+      }
+    </script>
+  </body>
+</html>

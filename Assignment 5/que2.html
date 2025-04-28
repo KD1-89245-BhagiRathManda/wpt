@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Que 2</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        let count;
+        do {
+          count = prompt("Enter a positive integer:");
+          count = Number(count);
+
+          if (isNaN(count) || count <= 0 || !Number.isInteger(count)) {
+            alert("Please enter a valid positive integer!");
+          }
+        } while (isNaN(count) || count <= 0 || !Number.isInteger(count));
+
+        const message = prompt("Enter a message to print:");
+
+        for (let i = 0; i < count; i++) {
+          console.log(message);
+        }
+
+        alert(
+          "Message printed " +
+            count +
+            " times in the console. Press F12 to view the console."
+        );
+      };
+    </script>
+  </body>
+</html>

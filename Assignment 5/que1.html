@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Que 1</title>
+  </head>
+  <body>
+    <script>
+      function getPositiveNumber(promptMessage) {
+        let num;
+        do {
+          num = prompt(promptMessage);
+
+          num = Number(num);
+
+          if (isNaN(num) || num <= 0 || !Number.isInteger(num)) {
+            alert("Please enter a valid positive integer!");
+          }
+        } while (isNaN(num) || num <= 0 || !Number.isInteger(num));
+
+        return num;
+      }
+
+      function findLargest(num1, num2, num3) {
+        return Math.max(num1, Math.max(num2, num3));
+      }
+
+      window.onload = function () {
+        const num1 = getPositiveNumber("Enter first positive integer:");
+        const num2 = getPositiveNumber("Enter second positive integer:");
+        const num3 = getPositiveNumber("Enter third positive integer:");
+
+        const largest = findLargest(num1, num2, num3);
+
+        alert("The largest number is: " + largest);
+      };
+    </script>
+  </body>
+</html>

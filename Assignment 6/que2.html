@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      input {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Enter Employee Names</h1>
+    <input type="text" id="employee-name" placeholder="Enter employee name" />
+    <button onclick="addName()">Add Name</button>
+    <button onclick="sortAndDisplay()">Sort & Display</button>
+    <h2>Sorted Employee Names:</h2>
+    <ul id="employee-list"></ul>
+
+    <script>
+      const employeeNames = [];
+
+      function addName() {
+        const nameInput = document.getElementById("employee-name");
+        const name = nameInput.value.trim();
+
+        if (name === "") {
+          alert("Please enter a valid name.");
+          return;
+        }
+
+        if (employeeNames.length >= 6) {
+          alert("You have already entered 6 names.");
+          return;
+        }
+
+        employeeNames.push(name);
+        nameInput.value = ""; // Clear the input field
+      }
+
+      function sortAndDisplay() {
+        if (employeeNames.length === 0) {
+          alert("No names to display. Please add names first.");
+          return;
+        }
+
+        const sortedNames = employeeNames.slice().sort(); // Sort the names
+        const list = document.getElementById("employee-list");
+        list.innerHTML = ""; // Clear the list
+
+        sortedNames.forEach((name) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = name;
+          list.appendChild(listItem);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunbeam Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table td {
+      padding: 8px;
+      vertical-align: top;
+    }
+    .form-table td {
+      padding: 5px;
+    }
+    input[type="text"], input[type="email"], input[type="password"],
+    input[type="date"], textarea, select {
+      padding: 6px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 2px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <center>
+      <img src="sunbeam.png" alt="Sunbeam Logo" width="50%" />
+      <h1>Sunbeam Registration Form</h1>
+      <table>
+        <tr>
+          <td>
+            <iframe width="424" height="238" src="https://www.youtube.com/embed/02q9aAVv1NI"
+              title="Sunbeam Institute of IT - Pune &amp; Karad" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </td>
+          <td>
+            <form id="registrationForm" action="#" method="post">
+              <table class="form-table">
+                <tr>
+                  <td><label for="name">Name</label></td>
+                  <td>: <input type="text" id="name" name="name" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="birthdate">BirthDate</label></td>
+                  <td>: <input type="date" id="birthdate" name="birthdate" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="email">Email</label></td>
+                  <td>: <input type="email" id="email" name="email" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="password">Password</label></td>
+                  <td>: <input type="password" id="password" name="password" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="Address">Address</label></td>
+                  <td>: <textarea name="Address" id="Address" rows="3" required></textarea></td>
+                </tr>
+                <tr>
+                  <td><label>Gender</label></td>
+                  <td>
+                    : <input type="radio" id="male" name="gender" value="male" required />
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female" />
+                    <label for="female">Female</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="photo">Upload Photo</label></td>
+                  <td>: <input type="file" id="photo" name="photo" accept="image/*" required /></td>
+                </tr>
+                <tr>
+                  <td><label for="course">Select your Course</label></td>
+                  <td>
+                    :
+                    <select id="course" name="course" required>
+                      <option value="">Select Course</option>
+                      <option value="DAC">DAC</option>
+                      <option value="DMC">DMC</option>
+                      <option value="DBDA">DBDA</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label>Skill Sets</label></td>
+                  <td>
+                    :
+                    <input type="checkbox" id="java" name="skills[]" value="JAVA" />
+                    <label for="java">JAVA</label>
+                    <input type="checkbox" id="cpp" name="skills[]" value="CPP" />
+                    <label for="cpp">CPP</label>
+                    <input type="checkbox" id="os" name="skills[]" value="OS" />
+                    <label for="os">OS</label>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    <input type="submit" value="Register" />
+                    <input type="reset" value="Clear" />
+                  </td>
+                </tr>
+              </table>
+            </form>
+            <div id="errorContainer"></div>
+          </td>
+        </tr>
+      </table>
+    </center>
+  </div>
+
+  <!-- jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+    // Basic JS selectors validation
+    function validateForm() {
+      document.getElementById('errorContainer').innerHTML = ""; // clear errors
+      let errors = [];
+
+      let name = document.getElementById('name').value.trim();
+      let birthdate = document.getElementById('birthdate').value;
+      let email = document.getElementById('email').value.trim();
+      let password = document.getElementById('password').value;
+      let address = document.getElementById('Address').value.trim();
+      let gender = document.querySelector('input[name="gender"]:checked');
+      let photo = document.getElementById('photo').files.length;
+      let course = document.getElementById('course').value;
+      let skills = document.querySelectorAll('input[name="skills[]"]:checked');
+
+      // Name validation
+      if (!/^[A-Za-z]{1,10}$/.test(name)) {
+        errors.push("Name must have only alphabets and max 10 characters.");
+      }
+
+      // Birthdate validation
+      if (birthdate) {
+        let today = new Date();
+        let dob = new Date(birthdate);
+        let age = today.getFullYear() - dob.getFullYear();
+        let m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+        if (dob >= today) {
+          errors.push("Birthdate must be a past date.");
+        } else if (age < 18) {
+          errors.push("You must be at least 18 years old.");
+        }
+      }
+
+      // Password validation
+      if (password.length <= 8 || !password.includes('#') || !/\d/.test(password)) {
+        errors.push("Password must be >8 characters, contain '#' and at least 1 digit.");
+      }
+
+      // Other fields mandatory check
+      if (!email || !address || !gender || !photo || !course || skills.length == 0) {
+        errors.push("All fields are mandatory and at least one skill must be selected.");
+      }
+
+      if (errors.length > 0) {
+        errors.forEach(function (err) {
+          let div = document.createElement('div');
+          div.className = "error";
+          div.innerText = err;
+          document.getElementById('errorContainer').appendChild(div);
+        });
+        return false; // Prevent form submission
+      }
+
+      // Save into sessionStorage
+      let formData = {
+        name: name,
+        birthdate: birthdate,
+        email: email,
+        password: password,
+        address: address,
+        gender: gender.value,
+        course: course,
+        skills: Array.from(skills).map(skill => skill.value)
+      };
+
+      sessionStorage.setItem('userData', JSON.stringify(formData));
+      alert("Registration Successful! Data saved in sessionStorage.");
+      return true; // Allow form submission
+    }
+
+    // jQuery validation (on submit)
+    $(document).ready(function () {
+      $('#registrationForm').submit(function (e) {
+        if (!validateForm()) {
+          e.preventDefault(); // stop submit
+        }
+      });
+    });
+  </script>
+</body>
+</html>

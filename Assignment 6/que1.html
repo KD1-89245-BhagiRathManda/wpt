@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Que 1</title>
+    <style>
+      h2 {
+        color: red;
+      }
+      span.blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Date & Greeting Web Page</h1>
+    <h2 id="date"></h2>
+    <h2 id="greeting"></h2>
+    <h2>
+      Number of days left till end of year:
+      <span id="days-left" class="blue"></span>
+    </h2>
+
+    <script>
+      const now = new Date();
+
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const dayName = days[now.getDay()];
+      const day = now.getDate();
+      const monthName = months[now.getMonth()];
+      const year = now.getFullYear();
+
+      document.getElementById(
+        "date"
+      ).textContent = `Today is ${dayName}, ${day} ${monthName} ${year},`;
+
+      const hour = now.getHours();
+      let greeting = "Good Morning";
+      if (hour >= 12 && hour < 17) {
+        greeting = "Good Afternoon";
+      } else if (hour >= 17) {
+        greeting = "Good Evening";
+      }
+      document.getElementById(
+        "greeting"
+      ).textContent = `Welcome, and ${greeting} to You.`;
+
+      const endOfYear = new Date(year, 11, 31); 
+      const oneDay = 24 * 60 * 60 * 1000; 
+      const daysLeft = Math.ceil((endOfYear - now) / oneDay);
+
+      document.getElementById("days-left").textContent = daysLeft;
+    </script>
+  </body>
+</html>
