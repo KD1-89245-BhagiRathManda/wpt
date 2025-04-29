@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "cf3a445b-43cc-4a49-965f-673194bd338e",
+		"name": "Airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25665495"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"riya\",\r\n    \"lastName\":\"patil\",\r\n    \"email\":\"riyapatil@gmail.com\",\r\n    \"password\":\"riya123\",\r\n    \"phone\":\"980767667\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODU3MDg1fQ.GnRxr4640Hi1F-QpnkfXHQ1FjJhM2t816QunEw6KzcI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"riyapatil@gmail.com\",\r\n    \"password\":\"riya123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTg2MDk0NH0.bDAxHBXzucsEydZLEldjmPdzVh6HEognS9XPgdyiJHw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTgyMDM0N30.blcWoRigNtDgWKIn9hsWAUo8cwwA_HkBv0BJfNO0T_I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/users/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user update profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTgyMDM0N30.blcWoRigNtDgWKIn9hsWAUo8cwwA_HkBv0BJfNO0T_I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"riya\",\r\n    \"lastName\":\"patilmore\",\r\n    \"phone\":\"980767667\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "category add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTg2MTY5NX0.vVe_mQz7CWh1vJYScUiY0hKg65jWtD4V2QSLISN_mlc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "beach house",
+									"type": "text"
+								},
+								{
+									"key": "details",
+									"value": "good view of the beach",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"type": "file",
+									"src": "/C:/Users/amank/OneDrive/Desktop/Sunbeam-Labs/MyGitData/Airbnb/resources/image1.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTg2MTgwMn0.ose7AEMDettnSyiciqsc3r7pWc_inouVC1iiA3xRyrk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTgyMDM0N30.blcWoRigNtDgWKIn9hsWAUo8cwwA_HkBv0BJfNO0T_I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "property",
+			"item": [
+				{
+					"name": "property add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODUwNTc4fQ.oDwv_m449ITVlshpONB_WVLodHJNX_cPDFhypfoNvR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryId\":1,\r\n    \"title\":\"3BHK villa in alibag\",\r\n    \"details\":\"this is banglow\",\r\n    \"address\":\"Alibag\",\r\n    \"contactNo\":\"8983049388\",\r\n    \"ownerName\":\"Anil Ambani\",\r\n    \"isLakeView\":1,\r\n    \"isTV\":1,\r\n    \"isAC\":1,\r\n    \"isWifi\":1,\r\n    \"isMiniBar\":0,\r\n    \"isBreakfast\":1,\r\n    \"isParking\":1,\r\n    \"guests\":9,\r\n    \"bedrooms\":3,\r\n    \"beds\":2,\r\n    \"bathrooms\":2,\r\n    \"rent\":5000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/property/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"property",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "property get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODUwNTc4fQ.oDwv_m449ITVlshpONB_WVLodHJNX_cPDFhypfoNvR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/property",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"property"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "property delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODUwNTc4fQ.oDwv_m449ITVlshpONB_WVLodHJNX_cPDFhypfoNvR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/property/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"property",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "property update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODUwNTc4fQ.oDwv_m449ITVlshpONB_WVLodHJNX_cPDFhypfoNvR4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"categoryId\": 1,\r\n    \"title\": \"Luxury Villa\",\r\n    \"details\": \"Beautiful villa with lake view\",\r\n    \"address\": \"123 Lake View Road\",\r\n    \"contactNo\": \"9876543210\",\r\n    \"ownerName\": \"John Doe\",\r\n    \"isLakeView\": 1,\r\n    \"isTV\": 1,\r\n    \"isAC\": 1,\r\n    \"isWifi\": 1,\r\n    \"isMiniBar\": 0,\r\n    \"isBreakfast\": 1,\r\n    \"isParking\": 1,\r\n    \"guests\": 6,\r\n    \"bedrooms\": 3,\r\n    \"beds\": 4,\r\n    \"bathrooms\": 2,\r\n    \"rent\": 8000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/property/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"property",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "with details",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"item": [
+				{
+					"name": "booking add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODU3ODg4fQ.2HFTbN4-WLO8b2gVUYBPN8SoxZbQtoBMnaSC0e104NY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"propertyId\":1,\r\n    \"total\":5000,\r\n    \"fromDate\":\"4-4-2025\",\r\n    \"toDate\":\"7-4-2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/bookings",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get bookings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQ1ODU3ODg4fQ.2HFTbN4-WLO8b2gVUYBPN8SoxZbQtoBMnaSC0e104NY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc0NTgyMDM0N30.blcWoRigNtDgWKIn9hsWAUo8cwwA_HkBv0BJfNO0T_I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/bookings",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "localhost:4000",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzQzNzM4MDYyfQ.IifsKlQZQUVOg-fFtMI_zXMkdcq8YDvXfhLXRQBu9h8",
+			"type": "string"
+		}
+	]
+}
